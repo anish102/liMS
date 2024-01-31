@@ -9,7 +9,7 @@ Then create the django project: *django-admin startproject project_name*
 Then create the django app: *python manage.py startapp app_name*  
 Then set up the database to integrate with django.  
 Add the installed apps such as django rest framework and the created app as well as database properties on settings.py file.  
-Create a serialiers.py file to serialize output of the response.  
+Create a serializers.py file to serialize output of the response.  
 Add your logics and data schema to views.py and models.py file.  
 Create the url to map the api endpoints to the respective view functions.  
 Make sure all the api endpoints are working as desired.  
