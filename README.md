@@ -34,7 +34,7 @@ Parameters:
 user_id (integer): The ID of the user.  
   
 **Book Endpoints**:  
-*GET /api/books/*  
+*GET /api/books/list/*  
 Description: Endpoint to retrieve a list of all books in the library.  
   
 *POST /api/books/add/*  
@@ -51,7 +51,7 @@ Description: Endpoint to retrieve details of a specific book by book ID.
 Parameters:  
 book_id (integer): The ID of the book.  
   
-*PUT /api/books/{book_id}/*  
+*PUT /api/books/{book_id}/details*  
 Description: Endpoint to update details of a specific book by book ID.  
 Parameters (Optional):  
 title (string): The title of the book.  
