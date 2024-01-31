@@ -1,8 +1,7 @@
 from django.db import models
 
-# Create your models here.
 
-
+# Models with specified attributes and relationships
 class User(models.Model):
     UserID = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=255)

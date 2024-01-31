@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -6,7 +7,12 @@ from .models import Book, BookDetails, BorrowedBooks, User
 from .serializers import BookSerializer, BorrowedBooksSerializer, UserSerializer
 
 
+def homepage(request):  # Function to render homepage
+    return render(request, 'home.html')
+
+
 @api_view(['POST'])
+# Function to handle HTTP POST request to create user
 def create_user(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
@@ -16,6 +22,7 @@ def create_user(request):
 
 
 @api_view(['GET'])
+# Function to handle HTTP GET request to show all users
 def list_all_users(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
@@ -23,6 +30,7 @@ def list_all_users(request):
 
 
 @api_view(['GET'])
+# Function to handle HTTP GET request to show user by id
 def get_user_by_id(request, user_id):
     try:
         user = User.objects.get(UserID=user_id)
@@ -34,7 +42,7 @@ def get_user_by_id(request, user_id):
 
 
 @api_view(['POST'])
-def add_new_book(request):
+def add_new_book(request):  # Function to handle HTTP POST request to add book
     serializer = BookSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -43,7 +51,7 @@ def add_new_book(request):
 
 
 @api_view(['GET'])
-def list_all_books(request):
+def list_all_books(request):  # Function to handle HTTP GET request to show all books
     borrowed_book_ids = BorrowedBooks.objects.values_list('Book_id', flat=True)
     available_books = Book.objects.exclude(BookID__in=borrowed_book_ids)
     serializer = BookSerializer(available_books, many=True)
@@ -51,6 +59,7 @@ def list_all_books(request):
 
 
 @api_view(['GET'])
+# Function to handle HTTP GET request to show book by id
 def get_book_by_id(request, book_id):
     try:
         book = Book.objects.get(BookID=book_id)
@@ -62,6 +71,7 @@ def get_book_by_id(request, book_id):
 
 
 @api_view(['PUT'])
+# Function to handle HTTP PUT request to update/add the details of the book
 def assign_update_book_details(request, book_id):
     try:
         book = Book.objects.get(BookID=book_id)
@@ -76,7 +86,7 @@ def assign_update_book_details(request, book_id):
 
 
 @api_view(['POST'])
-def borrow_book(request):
+def borrow_book(request):  # Function to handle HTTP POST request to borrow book
     serializer = BorrowedBooksSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -85,6 +95,7 @@ def borrow_book(request):
 
 
 @api_view(['PUT'])
+# Function to handle HTTP PUT request to return burrowed books
 def return_book(request, borrow_id):
     try:
         borrowed_book = BorrowedBooks.objects.get(BorrowID=borrow_id)
@@ -97,6 +108,7 @@ def return_book(request, borrow_id):
 
 
 @api_view(['GET'])
+# Function to handle HTTP GET request to show all borrowed books
 def list_all_borrowed_books(request):
     borrowed_books = BorrowedBooks.objects.filter(ReturnDate__isnull=True)
     serializer = BorrowedBooksSerializer(borrowed_books, many=True)

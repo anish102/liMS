@@ -2,16 +2,20 @@ from django.urls import path
 
 from . import views
 
+# Urls for different api endpoints
 urlpatterns = [
-    path('users/create/', views.create_user),
-    path('users/list/', views.list_all_users),
-    path('users/<int:user_id>/', views.get_user_by_id),
-    path('books/add/', views.add_new_book),
-    path('books/list/', views.list_all_books),
-    path('books/<int:book_id>/', views.get_book_by_id),
-    path('books/<int:book_id>/details/', views.assign_update_book_details),
-    path('borrow/', views.borrow_book),
-    path('return/<int:borrow_id>/', views.return_book),
-    path('borrowed-books/', views.list_all_borrowed_books),
+    path('', views.homepage),
+    path('users/create/', views.create_user, name='create_user'),
+    path('users/list/', views.list_all_users, name='list_all_users'),
+    path('users/<int:user_id>/', views.get_user_by_id, name='get_user'),
+    path('books/add/', views.add_new_book, name='add_book'),
+    path('books/list/', views.list_all_books, name='list_books'),
+    path('books/<int:book_id>/', views.get_book_by_id, name='get_book'),
+    path('books/<int:book_id>/details/',
+         views.assign_update_book_details, name='details'),
+    path('borrow/', views.borrow_book, name='borrow_book'),
+    path('return/<int:borrow_id>/', views.return_book, name='return_book'),
+    path('borrowed-books/', views.list_all_borrowed_books,
+         name='list_borrowed_books'),
 
 ]

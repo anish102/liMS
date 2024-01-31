@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+      .cover {
+        text-align: center;
+        padding: 100px 0;
+      }
+      h1 {
+        font-size: 36px;
+        color: #2c0303;
+      }
+      h4 {
+        font-size: 18px;
+        color: #c357e4;
+        margin-bottom: 20px;
+      }
+      ul {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <h1>Welcome to the Library Management System</h1>
+      <h4>Manage your library efficiently with our system</h4>
+      <br />
+      <p>Give the data in json format.</p>
+      <ul>
+        <li><a href="{% url 'create_user' %}">Create user</a></li>
+        <li><a href="{% url 'list_all_users' %}">Show all users</a></li>
+        <li><a href="{% url 'add_book' %}">Add a book</a></li>
+        <li><a href="{% url 'list_books' %}">Show available books</a></li>
+        <li><a href="{% url 'borrow_book' %}">Borrowed a book</a></li>
+        <li>
+          <a href="{% url 'list_borrowed_books' %}">Show all borrowed books</a>
+        </li>
+      </ul>
+      <p style="text-align: left">
+        For showing user and books by id, updating details of book, and
+        returning a book go directly through url.
+      </p>
+    </div>
+  </body>
+</html>

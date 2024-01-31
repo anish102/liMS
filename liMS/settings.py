@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
-    'base',
+    'rest_framework',  # Installing django rest framework to build apis.
+    'base',  # Main base app which holds all the api functionalities
 ]
 
 MIDDLEWARE = [
@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'liMS.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# Using MySql database
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lims_db',
-                'USER': 'root',
-                'PASSWORD': 'admin',
-                'HOST': 'localhost',
-                'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql',  # Used to connect to the mysql server
+        'NAME': 'lims_db',  # Name of the database
+                'USER': 'root',  # Username of the server
+                'PASSWORD': 'admin',  # Password of the server
+                'HOST': 'localhost',  # Default localhost
+                'PORT': '3306',  # Default port
     }
 }
 
