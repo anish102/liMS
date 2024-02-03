@@ -16,7 +16,7 @@ Make sure all the api endpoints are working as desired.
 Finally, push the project in remote github repository.  
   
 ***Api description***:  
-Through the api endpoints of library management system, we can create users, add books, as well as borrow and return books.  
+Through the api endpoints of library management system, we can create users, add books, as well as keep a record of borrowed and returned books.  
 **User endpoints**  
 *GET /api/users/list/*  
 Description: Endpoint to retrieve a list of all users in the system.  
