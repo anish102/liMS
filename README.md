@@ -7,7 +7,7 @@ The environment can be activated by the command: *source env_name/bin/activate*
 Then install the required tools and packages which I have listed on requirements.txt file which can be directly installed through the command: *pip install -r requirements.txt*  
 Then create the django project: *django-admin startproject project_name*  
 Then create the django app: *python manage.py startapp app_name*  
-Then set up the database to integrate with django.  
+Then set up the database to integrate with django framework.  
 Add the installed apps such as django rest framework and the created app as well as database properties on settings.py file.  
 Create a serializers.py file to serialize output of the response.  
 Add your logics and data schema to views.py and models.py file.  
