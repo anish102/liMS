@@ -30,7 +30,7 @@ def list_all_users(request):
 
 
 @api_view(['GET'])
-# Function to handle HTTP GET request to show user by id
+# Function to handle HTTP GET request to show user via id
 def get_user_by_id(request, user_id):
     try:
         user = User.objects.get(UserID=user_id)
