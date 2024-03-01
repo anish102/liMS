@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import Book, BorrowedBooks, User
 
-# Serializers based on the model of the app to convert model instances into JSON.
+# Serializers based on the model of the app to convert model instances into JSON format.
 
 
 class UserSerializer(serializers.ModelSerializer):
